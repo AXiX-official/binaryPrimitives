@@ -1,0 +1,10 @@
+{
+  "name": "AXiX-official/binaryPrimitives",
+  "version": "0.1.0",
+  "readme": "README.md",
+  "repository": "https://github.com/AXiX-official/binaryPrimitives",
+  "license": "Apache-2.0",
+  "keywords": ["byte", "binary", "reader", "writer", "primitives"],
+  "description": "BinaryPrimitives for MoonBit.",
+  "source": "src"
+}
