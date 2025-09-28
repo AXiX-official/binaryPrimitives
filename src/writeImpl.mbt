@@ -1,18 +1,18 @@
-pub fn writeBool(dest : ArrayView[Byte], value : Bool) -> Unit raise Error {
+pub fn writeBool(dest : Array[Byte], value : Bool) -> Unit raise Error {
   if dest.length() < 1 {
     raise IndexOutOfBounds
   }
   dest[0] = if value { 1 } else { 0 }
 }
 
-pub fn writeByte(dest : ArrayView[Byte], value : Byte) -> Unit raise Error {
+pub fn writeByte(dest : Array[Byte], value : Byte) -> Unit raise Error {
   if dest.length() < 1 {
     raise IndexOutOfBounds
   }
   dest[0] = value
 }
 
-pub fn writeUI16Le(dest : ArrayView[Byte], value : UInt16) -> Unit raise Error {
+pub fn writeUI16Le(dest : Array[Byte], value : UInt16) -> Unit raise Error {
   if dest.length() < 2 {
     raise IndexOutOfBounds
   }
@@ -20,7 +20,7 @@ pub fn writeUI16Le(dest : ArrayView[Byte], value : UInt16) -> Unit raise Error {
   dest[1] = (value >> 8).to_byte()
 }
 
-pub fn writeUI16Be(dest : ArrayView[Byte], value : UInt16) -> Unit raise Error {
+pub fn writeUI16Be(dest : Array[Byte], value : UInt16) -> Unit raise Error {
   if dest.length() < 2 {
     raise IndexOutOfBounds
   }
@@ -28,7 +28,7 @@ pub fn writeUI16Be(dest : ArrayView[Byte], value : UInt16) -> Unit raise Error {
   dest[1] = value.to_byte()
 }
 
-pub fn writeI16Be(dest : ArrayView[Byte], value : Int16) -> Unit raise Error {
+pub fn writeI16Be(dest : Array[Byte], value : Int16) -> Unit raise Error {
   if dest.length() < 2 {
     raise IndexOutOfBounds
   }
@@ -36,7 +36,7 @@ pub fn writeI16Be(dest : ArrayView[Byte], value : Int16) -> Unit raise Error {
   dest[1] = value.to_byte()
 }
 
-pub fn writeI16Le(dest : ArrayView[Byte], value : Int16) -> Unit raise Error {
+pub fn writeI16Le(dest : Array[Byte], value : Int16) -> Unit raise Error {
   if dest.length() < 2 {
     raise IndexOutOfBounds
   }
@@ -44,7 +44,7 @@ pub fn writeI16Le(dest : ArrayView[Byte], value : Int16) -> Unit raise Error {
   dest[1] = (value >> 8).to_byte()
 }
 
-pub fn writeUI32Le(dest : ArrayView[Byte], value : UInt) -> Unit raise Error {
+pub fn writeUI32Le(dest : Array[Byte], value : UInt) -> Unit raise Error {
   if dest.length() < 4 {
     raise IndexOutOfBounds
   }
@@ -54,7 +54,7 @@ pub fn writeUI32Le(dest : ArrayView[Byte], value : UInt) -> Unit raise Error {
   dest[3] = (value >> 24).to_byte()
 }
 
-pub fn writeUI32Be(dest : ArrayView[Byte], value : UInt) -> Unit raise Error {
+pub fn writeUI32Be(dest : Array[Byte], value : UInt) -> Unit raise Error {
   if dest.length() < 4 {
     raise IndexOutOfBounds
   }
@@ -64,7 +64,7 @@ pub fn writeUI32Be(dest : ArrayView[Byte], value : UInt) -> Unit raise Error {
   dest[3] = value.to_byte()
 }
 
-pub fn writeI32Le(dest : ArrayView[Byte], value : Int) -> Unit raise Error {
+pub fn writeI32Le(dest : Array[Byte], value : Int) -> Unit raise Error {
   if dest.length() < 4 {
     raise IndexOutOfBounds
   }
@@ -74,7 +74,7 @@ pub fn writeI32Le(dest : ArrayView[Byte], value : Int) -> Unit raise Error {
   dest[3] = (value >> 24).to_byte()
 }
 
-pub fn writeI32Be(dest : ArrayView[Byte], value : Int) -> Unit raise Error {
+pub fn writeI32Be(dest : Array[Byte], value : Int) -> Unit raise Error {
   if dest.length() < 4 {
     raise IndexOutOfBounds
   }
@@ -84,7 +84,7 @@ pub fn writeI32Be(dest : ArrayView[Byte], value : Int) -> Unit raise Error {
   dest[3] = value.to_byte()
 }
 
-pub fn writeUI64Le(dest : ArrayView[Byte], value : UInt64) -> Unit raise Error {
+pub fn writeUI64Le(dest : Array[Byte], value : UInt64) -> Unit raise Error {
   if dest.length() < 8 {
     raise IndexOutOfBounds
   }
@@ -98,7 +98,7 @@ pub fn writeUI64Le(dest : ArrayView[Byte], value : UInt64) -> Unit raise Error {
   dest[7] = (value >> 56).to_byte()
 }
 
-pub fn writeUI64Be(dest : ArrayView[Byte], value : UInt64) -> Unit raise Error {
+pub fn writeUI64Be(dest : Array[Byte], value : UInt64) -> Unit raise Error {
   if dest.length() < 8 {
     raise IndexOutOfBounds
   }
@@ -112,7 +112,7 @@ pub fn writeUI64Be(dest : ArrayView[Byte], value : UInt64) -> Unit raise Error {
   dest[7] = value.to_byte()
 }
 
-pub fn writeI64Le(dest : ArrayView[Byte], value : Int64) -> Unit raise Error {
+pub fn writeI64Le(dest : Array[Byte], value : Int64) -> Unit raise Error {
   if dest.length() < 8 {
     raise IndexOutOfBounds
   }
@@ -126,7 +126,7 @@ pub fn writeI64Le(dest : ArrayView[Byte], value : Int64) -> Unit raise Error {
   dest[7] = (value >> 56).to_byte()
 }
 
-pub fn writeI64Be(dest : ArrayView[Byte], value : Int64) -> Unit raise Error {
+pub fn writeI64Be(dest : Array[Byte], value : Int64) -> Unit raise Error {
   if dest.length() < 8 {
     raise IndexOutOfBounds
   }
@@ -140,18 +140,18 @@ pub fn writeI64Be(dest : ArrayView[Byte], value : Int64) -> Unit raise Error {
   dest[7] = value.to_byte()
 }
 
-pub fn writeF32Le(dest : ArrayView[Byte], value : Float) -> Unit raise Error {
+pub fn writeF32Le(dest : Array[Byte], value : Float) -> Unit raise Error {
   writeUI32Le(dest, value.reinterpret_as_uint())
 }
 
-pub fn writeF32Be(dest : ArrayView[Byte], value : Float) -> Unit raise Error {
+pub fn writeF32Be(dest : Array[Byte], value : Float) -> Unit raise Error {
   writeUI32Be(dest, value.reinterpret_as_uint())
 }
 
-pub fn writeF64Le(dest : ArrayView[Byte], value : Double) -> Unit raise Error {
+pub fn writeF64Le(dest : Array[Byte], value : Double) -> Unit raise Error {
   writeUI64Le(dest, value.reinterpret_as_uint64())
 }
 
-pub fn writeF64Be(dest : ArrayView[Byte], value : Double) -> Unit raise Error {
+pub fn writeF64Be(dest : Array[Byte], value : Double) -> Unit raise Error {
   writeUI64Be(dest, value.reinterpret_as_uint64())
 }
